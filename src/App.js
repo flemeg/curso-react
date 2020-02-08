@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./css/pure-min.css";
 import "./css/side-menu.css";
+import InputCustom from "./InputCustom";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
 
       var result = this.calculate(this.state.numero2);
 
-      const newitem = { aposta: this.state.aposta, valor: result};
+      const newitem = { aposta: this.state.aposta, valor: result };
       this.setState({
         resultados: [...this.state.resultados, newitem]
       });
@@ -27,7 +28,7 @@ class App extends Component {
     };
   }
 
-  calculate(param1){
+  calculate(param1) {
     return param1 * param1;
   }
 
@@ -71,18 +72,28 @@ class App extends Component {
 
         <div id="main">
           <div className="header">
-            <h3>Calculo da raiz quadrada</h3>
+            <h3>Aposta da quadrada</h3>
           </div>
           <div className="content" id="content">
             <div className="pure-form pure-form-aligned">
               <form className="pure-form pure-form-aligned">
-                <div className="pure-control-group">
-                  <label htmlFor="nome">Aposta</label>
-                  <input id="aposta" type="text" name="aposta" value={this.state.aposta} onChange={this.handleApostaChange} />
-                </div>
+                <InputCustom
+                  id="aposta"
+                  type="text"
+                  name="aposta"
+                  value={this.state.aposta}
+                  onChange={this.handleApostaChange}
+                  label="Aposta"
+                />
                 <div className="pure-control-group">
                   <label htmlFor="email">Número 2</label>
-                  <input id="numero2" type="text" name="numero2" value={this.state.numero2} onChange={this.handleNumero2Change} />
+                  <input
+                    id="numero2"
+                    type="text"
+                    name="numero2"
+                    value={this.state.numero2}
+                    onChange={this.handleNumero2Change}
+                  />
                 </div>
                 <div className="pure-control-group">
                   <label></label>
