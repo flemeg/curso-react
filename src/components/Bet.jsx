@@ -32,64 +32,63 @@ class Bet extends Component {
 
   render() {
     return (
-      <div id="layout">
-        <div id="main">
-          <div className="header">
-            <h3>Aposta da quadrada</h3>
-          </div>
-          <div className="content" id="content">
-            <div className="pure-form pure-form-aligned">
-              <form className="pure-form pure-form-aligned">
-                <InputCustom
-                  id="aposta"
+      <div>
+        <div className="header">
+          <h2>Aposta da quadrada</h2>
+        </div>
+        <div className="content" id="content">
+          <div className="pure-form pure-form-aligned">
+            <p />
+            <form className="pure-form pure-form-aligned">
+              <InputCustom
+                id="aposta"
+                type="text"
+                name="aposta"
+                value={this.state.aposta}
+                onChange={this.handleApostaChange}
+                label="Aposta"
+              />
+              <div className="pure-control-group">
+                <label htmlFor="email">Número 2</label>
+                <input
+                  id="numero2"
                   type="text"
-                  name="aposta"
-                  value={this.state.aposta}
-                  onChange={this.handleApostaChange}
-                  label="Aposta"
+                  name="numero2"
+                  value={this.state.numero2}
+                  onChange={this.handleNumero2Change}
                 />
-                <div className="pure-control-group">
-                  <label htmlFor="email">Número 2</label>
-                  <input
-                    id="numero2"
-                    type="text"
-                    name="numero2"
-                    value={this.state.numero2}
-                    onChange={this.handleNumero2Change}
-                  />
-                </div>
-                <div className="pure-control-group">
-                  <label></label>
-                  <button
-                    type="none"
-                    onClick={this.addItemToList}
-                    className="pure-button pure-button-primary"
-                  >
-                    Vai
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div>
-              <table className="pure-table">
-                <thead>
-                  <tr>
-                    <th>Aposta</th>
-                    <th>Valor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.resultados.map(function(resultado) {
-                    return (
-                      <tr>
-                        <td>{resultado.aposta}</td>
-                        <td>{resultado.valor}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+              </div>
+              <div className="pure-control-group">
+                <label></label>
+                <button
+                  type="none"
+                  onClick={this.addItemToList}
+                  className="pure-button pure-button-primary"
+                >
+                  Vai
+                </button>
+              </div>
+            </form>
+          </div>
+          <div>
+            <table className="pure-table">
+              <thead>
+                <tr>
+                  <th>Aposta</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.resultados.map(function(resultado) {
+                  return (
+                    <tr>
+                      <td>{resultado.aposta}</td>
+                      <td>{resultado.valor}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
